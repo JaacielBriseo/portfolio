@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       fontFamily:{
         Playfair: ['Playfair Display', 'serif'],
+        Poppins: ['Poppins', 'sans-serif']
       }
     },
     colors: {
@@ -21,7 +22,8 @@ module.exports = {
       amber: colors.amber,
       'custom' : '#D0AE6C',
       '20if': '#201F1F',
-      'ffa': '#FFFAF6'
+      'ffa': '#FFFAF6',
+      'cartext' :'#D0D0CF'
     },
   },
   plugins: [],

@@ -5,7 +5,7 @@ import img4 from '../../images/18.jpg';
 export const CarousselComp = () => {
   return (
     <>
-      <h1 className="text-ffa text-lg m-3 ">Categories</h1>
+      <h1 className="text-ffa font-Playfair tracking-wide text-lg m-3 ">Categories</h1>
       <div className="w-full mt-7 ">
         <Carousel
           showThumbs={false}
@@ -14,6 +14,7 @@ export const CarousselComp = () => {
           showIndicators={false}
           showStatus={false}
         >
+        
           <img src={img1} alt="" className="rounded-3xl" />
           <img src={img3} alt="" className="rounded-3xl" />
           <img src={img4} alt="" className="rounded-3xl" />

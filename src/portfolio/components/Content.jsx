@@ -1,8 +1,8 @@
 export const Content = () => {
   return (
     <>
-      <div className="w-9/12 mt-9">
-        <h1 className="text-ffa text-3xl m-3">
+      <div className="w-9/12 mt-5">
+        <h1 className="text-ffa font-Poppins text-3xl m-3">
           This is my first attempt of
           <span className="text-custom"> portfolio </span>
         </h1>
