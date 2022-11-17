@@ -8,7 +8,11 @@ export const Content = () => {
         </h1>
       </div>
       <div className="flex justify-center">
-        <input type="search" placeholder="Search" className="bg-20if w-11/12 h-10" />
+        <input
+          type="search"
+          placeholder="&#128269; Search"
+          className="bg-20if w-11/12 h-10"
+        />
       </div>
     </>
   );

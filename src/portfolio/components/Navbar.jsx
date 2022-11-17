@@ -24,7 +24,7 @@ export const Navbar = () => {
             <i className="fa-solid fa-user text-custom  hover:text-black"></i>
           </NavLink>
           <NavLink
-            to={'/home'}
+            to={'/contact'}
             className="bg-black h-10 w-10 rounded-xl flex justify-center items-center hover:bg-custom"
           >
             <i className="fa-solid fa-id-card text-custom hover:text-black"></i>

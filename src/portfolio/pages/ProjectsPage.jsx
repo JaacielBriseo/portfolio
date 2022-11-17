@@ -1,13 +1,10 @@
 import { Carousel } from 'react-responsive-carousel';
-import { NavLink } from 'react-router-dom';
 import { projectsData } from '../../helpers/projectsData';
+import { Navbar } from '../components/Navbar';
 
 export const ProjectsPage = () => {
   return (
-    <>
-      <NavLink to={'/home'}>
-        <i className="fa-solid fa-house text-custom float-right mr-2"></i>
-      </NavLink>
+    <div className="animate__animated animate__fadeIn">
       <h1 className="text-custom m-4 text-2xl font-Playfair text-center">
         PROJECTS
       </h1>
@@ -18,17 +15,17 @@ export const ProjectsPage = () => {
           repositories and demos
         </p>
       </div>
-      <div className="w- flex flex-col justify-center content-center">
+      <div className="w-full flex flex-col justify-center content-center">
         <Carousel
-          centerMode
+          stopOnHover
+          width={320}
           showThumbs={false}
           showIndicators={false}
           showStatus={false}
           showArrows={false}
-          infiniteLoop
+          autoFocus
           autoPlay
-          interval={10000}
-          emulateTouch
+          interval={8000}
         >
           {projectsData.map(({ link, demo, img, desc }) => {
             return (
@@ -52,6 +49,6 @@ export const ProjectsPage = () => {
           })}
         </Carousel>
       </div>
-    </>
+    </div>
   );
 };
