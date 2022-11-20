@@ -5,10 +5,10 @@ import { PortfolioRoutes } from '../portfolio/routes';
 export const AppRouter = () => {
   return (
     <>
+      <Navbar />
       <Routes>
         <Route path="/*" element={<PortfolioRoutes />} />
       </Routes>
-      <Navbar />
     </>
   );
 };

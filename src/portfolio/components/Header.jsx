@@ -2,14 +2,14 @@ import wolf from '../../assets/wolf.jpg';
 export const Header = () => {
   return (
     <>
-      <div className="flex justify-between font-Playfair tracking-wider items-center text-white w-full">
+      <div className="flex justify-between sm:hidden font-Playfair tracking-wider items-center text-white">
         <div>
-          <h1 className="">
+          <h1>
             <i className="fa-sharp fa-solid fa-user-astronaut text-black m-2 rounded p-2 bg-custom"></i>
             JAACIEL
           </h1>
         </div>
-        <img src={wolf} alt="" className='w-8 m-1 rounded-lg'/>
+       
       </div>
     </>
   );

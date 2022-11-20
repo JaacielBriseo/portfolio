@@ -1,7 +1,12 @@
+import moonimg from '../../images/moonimg.jpg';
+
 export const ContactConsole = () => {
   return (
-    <>
-      <div className="bg-contactimg bg-no-repeat bg-cover bg-center w-80 h-80 mt-24 flex justify-center items-center">
+    <div className="flex justify-center m-auto">
+      <div
+        style={{ backgroundImage: `url(${moonimg})` }}
+        className=" bg-no-repeat bg-cover bg-center w-full h-80 mt-24 flex justify-center items-center"
+      >
         <div className="bg-20if w-72 h-60 opacity-95 cursor-pointer group perspective">
           <div className="relative preserve-3d group-hover:my-rotate-y-180 w-full h-full duration-1000">
             <div className="absolute backface-hidden w-full h-full flex justify-center place-items-center">
@@ -13,7 +18,7 @@ export const ContactConsole = () => {
             <div className="absolute my-rotate-y-180 backface-hidden w-full h-full">
               <div className="flex flex-col items-center justify-center h-full">
                 <p>
-                  <span style={{ color: '#ba68c8' }}> const</span> contactMe =
+                  <span className='text-purplecntc'> const</span> contactMe =
                   &#65115; <br />{' '}
                   <span className="text-redcntc ml-5">name</span>{' '}
                   <span className="text-bluecntc">:</span>{' '}
@@ -42,6 +47,6 @@ export const ContactConsole = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
