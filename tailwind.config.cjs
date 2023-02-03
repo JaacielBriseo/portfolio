@@ -23,16 +23,16 @@ module.exports = {
 				},
 			},
 			fontFamily: {
-				body: ['Open Sans', 'sans-serif'],
-				headings: ['Montserrat', 'sans-serif'],
+				OpenSans: ['Open Sans', 'sans-serif'],
+				Montserrat: ['Montserrat', 'sans-serif'],
 			},
 			animations: {
 				'fade-in': 'fade-in 1s ease-in-out',
 				'fade-out': 'fade-out 1s ease-in-out',
 			},
-			backgroundImage:{
-				stars:'url(/assets/background-stars.svg)'
-			}
+			backgroundImage: {
+				stars: 'url(/assets/background-stars.svg)',
+			},
 		},
 	},
 	plugins: [],
