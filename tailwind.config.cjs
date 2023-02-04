@@ -32,7 +32,9 @@ module.exports = {
 			},
 			backgroundImage: {
 				stars: 'url(/assets/background-stars.svg)',
-				sparks:'url(/assets/sparks.svg)'
+				sparks: 'url(/assets/sparks.svg)',
+				volcanoLight: 'url(/assets/volcano-light.jpg)',
+				volcanoDark: 'url(/assets/volcano-dark.jpg)',
 			},
 		},
 	},

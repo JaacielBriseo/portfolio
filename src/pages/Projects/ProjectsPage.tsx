@@ -1,5 +1,9 @@
+import { ProjectsGrid } from '../../components/ProjectsGrid/ProjectsGrid';
+
 export const ProjectsPage = () => {
-  return (
-    <div>Projects</div>
-  )
-}
+	return (
+		<div>
+			<ProjectsGrid />
+		</div>
+	);
+};
