@@ -3,5 +3,5 @@ import { ProjectContext } from './ProjectCard';
 
 export const ProjectTitle = () => {
 	const { title } = useContext(ProjectContext);
-	return <h1 className='font-bold leading-10 tracking-wider text-2xl'>{title}</h1>;
+	return <h1 className='font-bold leading-10 tracking-wider text-2xl text-center'>{title}</h1>;
 };

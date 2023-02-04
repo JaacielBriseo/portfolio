@@ -1,2 +1,2 @@
 export * from './useNavigation';
-export * from './useDarkSide';
+export * from './useTheme';

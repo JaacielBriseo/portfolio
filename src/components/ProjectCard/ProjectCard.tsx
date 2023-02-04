@@ -9,7 +9,7 @@ const { Provider } = ProjectContext;
 export const ProjectCard: React.FC<Props> = ({ project, children }) => {
 	return (
 		<Provider value={project}>
-			<div className='border'>{children}</div>
+			<div className='rounded-lg shadow-lg'>{children}</div>
 		</Provider>
 	);
 };

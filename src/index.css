@@ -9,3 +9,6 @@
 		@apply font-Montserrat;
 	}
 }
+.link{
+	@apply font-medium text-lg text-tertiary hover:underline
+}

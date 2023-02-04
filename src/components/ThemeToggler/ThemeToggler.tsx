@@ -1,13 +1,12 @@
 import { useState } from 'react';
-import { useDarkSide } from '../../hooks';
-
+import { useTheme } from '../../hooks';
 
 export const ThemeToggler = () => {
-	const [colorTheme, setTheme] = useDarkSide();
+	const { setTheme } = useTheme();
 	const [toggle, setToggle] = useState(true);
 	const toggleClass = ' transform translate-x-5';
 	const toggleDarkMode = () => {
-		setTheme(colorTheme);
+		setTheme(current => (current === 'light' ? 'dark' : 'light'));
 		setToggle(!toggle);
 	};
 	return (
