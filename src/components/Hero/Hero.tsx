@@ -1,3 +1,4 @@
+import { AnimatedBGContainer } from '../AnimatedBGContainer/AnimatedBGContainer';
 import { AnimatedText } from '../AnimatedText/AnimatedText';
 import { GradientContainer } from '../GradientContainer/GradientContainer';
 import { Wrapper } from '../Wrapper/Wrapper';
@@ -5,11 +6,11 @@ import { Wrapper } from '../Wrapper/Wrapper';
 export const Hero = () => {
 	return (
 		<GradientContainer>
-			<div className='w-full h-full flex flex-col items-center justify-center bg-stars'>
+			<AnimatedBGContainer>
 				<Wrapper>
-					<AnimatedText text='skilled frontend developer'/>
+					<AnimatedText text='skilled frontend developer' />
 				</Wrapper>
-			</div>
+			</AnimatedBGContainer>
 		</GradientContainer>
 	);
 };
