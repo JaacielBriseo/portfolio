@@ -12,8 +12,8 @@ export const AnimatedBGContainer: React.FC<Props> = ({ children }) => {
 	return (
 		<div
 			ref={divRef}
-			style={{ backgroundImage: 'url(/assets/background-stars.svg)' }}
-			className='w-full h-full flex flex-col items-center justify-center'>
+			
+			className='w-full h-full flex flex-col items-center justify-center  dark:bg-stars'>
 			{children}
 		</div>
 	);
