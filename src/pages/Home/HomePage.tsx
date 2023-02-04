@@ -1,5 +1,9 @@
+import { Hero } from '../../components/Hero/Hero';
+
 export const HomePage = () => {
-  return (
-    <div>Home</div>
-  )
-}
+	return (
+		<div className='h-screen'>
+			<Hero />
+		</div>
+	);
+};

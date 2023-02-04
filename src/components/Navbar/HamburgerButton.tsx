@@ -13,15 +13,15 @@ export const HamburgerButton: React.FC<Props> = ({ className }) => {
 				<span
 					className={`transform transition duration-300 ease-in-out h-[3px] bg-Dark block ${
 						isOpen && 'rotate-45 translate-y-1'
-					}  `}
+					}  dark:bg-gray-700 `}
 				/>
 				<span
-					className={`transform transition duration-300 ease-in-out h-[3px] bg-Dark  ${isOpen ? 'hidden' : 'block'}`}
+					className={`transform transition duration-300 ease-in-out h-[3px] bg-Dark  ${isOpen ? 'hidden' : 'block'} dark:bg-gray-700`}
 				/>
 				<span
 					className={`transform transition duration-300 ease-in-out h-[3px] bg-Dark block  ${
 						isOpen && '-rotate-45 -translate-y-1'
-					}`}
+					} dark:bg-gray-700`}
 				/>
 			</button>
 		</>
