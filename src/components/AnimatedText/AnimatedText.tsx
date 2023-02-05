@@ -5,22 +5,24 @@ interface Props {
 }
 export const AnimatedText: React.FC<Props> = ({ text }) => {
 	const textRef = useRef<HTMLHeadingElement>(null);
+	const words = text.split(' ');
 	useLayoutEffect(() => {
-		const tl = gsap.timeline({ repeat: 0, ease: 'back' });
-
-		tl.fromTo(
-			textRef.current,
-			{
-				opacity: 0,
-				scale: 0,
-			},
-			{ opacity: 1, scale: 1, duration: 2 }
-		);
+		const ctx = gsap.context(() => {
+			gsap.to('.char', { y: 0, stagger: 0.1, delay: 0.5, duration: 1, ease: 'none', repeat: 0 });
+		}, textRef);
+		return () => ctx.revert();
 	}, []);
 	return (
-		//TODO: SCALE TEXT ON HOVER
-		<h1 ref={textRef} className='text-white text-5xl leading-[1.5] uppercase'>
-			{text}
-		</h1>
+		<div ref={textRef} className='text-white text-[43px] leading-[1.5] uppercase'>
+			{words.map(word => (
+				<div key={word}>
+					{word.split('').map((char, i) => (
+						<span key={i} className='char inline-block translate-y-96 duration-100'>
+							{char}
+						</span>
+					))}
+				</div>
+			))}
+		</div>
 	);
 };
