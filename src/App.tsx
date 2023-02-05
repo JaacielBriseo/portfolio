@@ -1,8 +1,11 @@
 import { Navbar } from './components/Navbar/Navbar';
 import { ContactPage, HomePage, ProjectsPage } from './pages';
 import { Route } from './router';
+// import { useState } from 'react';
 
 export const App = () => {
+	// const [isLoading, setIsLoading] = useState(true);
+
 	return (
 		<div className='bg-white dark:bg-Dark dark:bg-opacity-95'>
 			<Navbar />
