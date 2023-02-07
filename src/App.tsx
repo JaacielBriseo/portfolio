@@ -1,13 +1,14 @@
 import { Navbar } from './components/Navbar/Navbar';
+import { useNavigation } from './hooks';
 import { ContactPage, HomePage, ProjectsPage } from './pages';
 import { Route } from './router';
-// import { useState } from 'react';
 
 export const App = () => {
-	// const [isLoading, setIsLoading] = useState(true);
+	const { currentPath } = useNavigation();
 
 	return (
-		<div className='bg-white dark:bg-Dark dark:bg-opacity-95'>
+		<div
+			className={`bg-white dark:bg-Dark dark:bg-opacity-95 ${currentPath === '/' && 'max-h-screen overflow-hidden'} `}>
 			<Navbar />
 			<div>
 				<Route path='/' children={<HomePage />} />

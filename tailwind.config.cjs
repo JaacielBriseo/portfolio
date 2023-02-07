@@ -39,6 +39,7 @@ module.exports = {
 				dessert:'url(/assets/layered-peaks-haikei.svg)',
 				day:'url(/assets/twilight.svg)',
 				night:'url(/assets/moonlight.svg)',
+				clouds:'url(https://greensock.com/_img/codepen/clouds.png)'
 			},
 		},
 	},

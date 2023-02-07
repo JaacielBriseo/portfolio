@@ -1,31 +1,41 @@
-import { ReactElement, useEffect, useRef } from 'react';
+import { ReactElement, useEffect, useLayoutEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import gsap from 'gsap';
 interface Props {
 	children?: ReactElement | ReactElement[] | string | number;
 	actionBar?: JSX.Element;
 	onClose: () => void;
+	isMobileMenuOpen: boolean;
 }
-export const ModalContainer: React.FC<Props> = ({ actionBar, children, onClose }) => {
+export const ModalContainer: React.FC<Props> = ({ isMobileMenuOpen, children, onClose }) => {
 	const divRef = useRef<HTMLDivElement>(null);
+	const tl = useRef<gsap.core.Timeline>();
 	useEffect(() => {
 		document.body.classList.add('overflow-hidden');
 		return () => document.body.classList.remove('overflow-hidden');
 	}, []);
-	useEffect(() => {
+	useLayoutEffect(() => {
 		const ctx = gsap.context(() => {
-			gsap.fromTo('.rotate', { scale: 0 }, { scale: 1, duration: 1.5,ease:'bounce' });
+			tl.current && tl.current.progress(0).kill();
+			tl.current = gsap
+				.timeline({ paused: true })
+				.fromTo('.dropdown', { x: '100%' }, { x: '0%', duration: 0.5, ease: 'linear' });
 		}, divRef);
 		return () => ctx.revert();
 	}, []);
+	useEffect(() => {
+		isMobileMenuOpen ? tl.current?.play() : tl.current?.reverse();
+	}, [isMobileMenuOpen]);
 
 	return ReactDOM.createPortal(
 		<div ref={divRef}>
-			<div onClick={onClose} className='rotate fixed inset-0 bg-gray-300 opacity-80'></div>
-			<div className='rotate fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-10 rounded-md w-[calc(100vw-20%)] h-[calc(100vh-50%)] z-50'>
-				<div className='rotate flex flex-col items-center justify-between h-full'>
+			<div
+				onClick={onClose}
+				className='dropdown fixed inset-0 bg-white bg-opacity-95 mt-24 dark:bg-Dark dark:bg-opacity-95'></div>
+			<div className='dropdown fixed top-1/3 left-1/2 mt-40 -translate-x-1/2 -translate-y-1/2  p-10 rounded-md w-[calc(100vw-20%)] h-[calc(100vh-50%)] z-50 '>
+				<div className=' flex flex-col items-center justify-between h-full'>
 					{children}
-					{/* <div className='rotate flex justify-end'>{actionBarToShow}</div> */}
+					{/* <div className=' flex justify-end'>{actionBarToShow}</div> */}
 				</div>
 			</div>
 		</div>,
