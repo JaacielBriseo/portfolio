@@ -1,28 +1,45 @@
+import gsap from 'gsap';
+import { useRef, useEffect } from 'react';
 interface Props {
 	className?: string;
 	toggleMobileMenu: () => void;
 	isMobileMenuOpen: boolean;
 }
 export const HamburgerButton: React.FC<Props> = ({ className, toggleMobileMenu, isMobileMenuOpen }) => {
+	const buttonRef = useRef<HTMLButtonElement>(null);
+	const tl = useRef<gsap.core.Timeline>();
+	useEffect(() => {
+		const ctx = gsap.context(() => {
+			tl.current && tl.current.progress(0).kill();
+			tl.current = gsap
+				.timeline({ paused: true })
+				.fromTo(buttonRef.current, { rotation: 360 }, { rotation: 45, duration: 0.3, ease: 'none' });
+		}, buttonRef);
+		return () => ctx.revert();
+	}, []);
+	useEffect(() => {
+		isMobileMenuOpen ? tl.current?.play() : tl.current?.reverse();
+	}, [isMobileMenuOpen]);
 	return (
-		<>
-			<button className={`block h-10 w-10 p-2 border focus:outline-none space-y-1 ${className}`} onClick={toggleMobileMenu}>
-				<span
-					className={`transform transition duration-300 ease-in-out h-[3px] bg-Dark block ${
-						isMobileMenuOpen && 'rotate-45 translate-y-1'
-					}  dark:bg-gray-700 `}
-				/>
-				<span
-					className={`transform transition duration-300 ease-in-out h-[3px] bg-Dark  ${
-						isMobileMenuOpen ? 'hidden' : 'block'
-					} dark:bg-gray-700`}
-				/>
-				<span
-					className={`transform transition duration-300 ease-in-out h-[3px] bg-Dark block  ${
-						isMobileMenuOpen && '-rotate-45 -translate-y-1'
-					} dark:bg-gray-700`}
-				/>
-			</button>
-		</>
+		<button
+			ref={buttonRef}
+			className={`h-12 w-12 p-2 border border-gray-400 focus:outline-none space-y-1 ${className}`}
+			onClick={toggleMobileMenu}>
+			<span
+				className={`transform transition duration-300 ease-in-out h-[3px] bg-Dark block ${
+					isMobileMenuOpen && 'rotate-90 translate-y-[3px]'
+				}  dark:bg-gray-700 `}
+			/>
+			<span
+				className={`transform transition duration-300 ease-in-out h-[3px] bg-Dark  ${
+					isMobileMenuOpen ? 'hidden' : 'block'
+				} dark:bg-gray-700`}
+			/>
+			<span
+				className={`transform transition duration-300 ease-in-out h-[3px]  bg-Dark block  ${
+					isMobileMenuOpen && 'rotate-180 -translate-y-1'
+				} dark:bg-gray-700`}
+			/>
+		</button>
 	);
 };
