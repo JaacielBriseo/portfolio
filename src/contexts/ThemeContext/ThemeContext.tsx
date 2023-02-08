@@ -11,7 +11,7 @@ interface Props {
 }
 export const ThemeContextProvider: React.FC<Props> = ({ children }) => {
 	const ThemeProvider = ThemeContext.Provider;
-	const [theme, setTheme] = useState<string>(localStorage.getItem('theme') || 'light');
+	const [theme, setTheme] = useState<string>(localStorage.getItem('theme') || 'dark');
 
 	useEffect(() => {
 		const root = document.documentElement;

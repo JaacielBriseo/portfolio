@@ -33,7 +33,7 @@ export const ModalContainer: React.FC<Props> = ({ isMobileMenuOpen, children, on
 			<div
 				onClick={onClose}
 				className='dropdown fixed inset-0 bg-white bg-opacity-95 mt-24 dark:bg-Dark dark:bg-opacity-95'></div>
-			<div className='dropdown fixed top-1/3 left-1/2 mt-40 -translate-x-1/2 -translate-y-1/2  p-10 rounded-md w-[calc(100vw-20%)] h-[calc(100vh-50%)] z-50 '>
+			<div className='dropdown fixed top-1/3 left-1/2 mt-40 -translate-x-1/2 -translate-y-1/2  rounded-md w-[calc(100vw-20%)] h-[calc(100vh-50%)] z-50 '>
 				<div className=' flex flex-col items-center justify-between h-full'>
 					{children}
 					{/* <div className=' flex justify-end'>{actionBarToShow}</div> */}

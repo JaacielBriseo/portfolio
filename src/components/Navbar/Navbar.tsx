@@ -10,7 +10,7 @@ export const Navbar = () => {
 	const { navigate } = useNavigation();
 	return (
 		<>
-			<div className='flex flex-col'>
+			<nav className='flex flex-col'>
 				<div className='flex justify-between items-center p-3 h-24'>
 					<h1
 						onClick={() => navigate('/')}
@@ -19,7 +19,7 @@ export const Navbar = () => {
 					</h1>
 					<HamburgerButton toggleMobileMenu={toggleMobileMenu} isMobileMenuOpen={isMobileMenuOpen} />
 				</div>
-			</div>
+			</nav>
 			<ModalContainer isMobileMenuOpen={isMobileMenuOpen} onClose={toggleMobileMenu} children={<MobileMenu />} />
 		</>
 	);
