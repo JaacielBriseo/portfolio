@@ -2,10 +2,11 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import { projects } from '../../constants/projects';
 import { ProjectCard } from '../ProjectCard/ProjectCard';
 import gsap from 'gsap';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useLayoutEffect } from 'react';
 gsap.registerPlugin(ScrollTrigger);
 export const ProjectsGrid = () => {
 	const bgRef = useRef<HTMLElement>(null);
+	const titleRef = useRef<HTMLHeadingElement>(null);
 	useEffect(() => {
 		const bg = bgRef.current;
 		gsap.to(bg, {
@@ -20,6 +21,19 @@ export const ProjectsGrid = () => {
 			},
 		});
 	}, []);
+	useLayoutEffect(() => {
+		const title = titleRef.current;
+		gsap.fromTo(
+			title,
+			{ scaleY: 0 },
+			{
+				scaleY: 1,
+				duration: 0.5,
+				ease: 'linear',
+				delay: 0.5,
+			}
+		);
+	}, []);
 	return (
 		<section
 			ref={bgRef}
@@ -27,7 +41,9 @@ export const ProjectsGrid = () => {
 			className='bg-day bg-no-repeat bg-cover bg-fixed dark:bg-night space-y-10'>
 			<div>
 				<div className='flex items-end justify-center w-9/12 mx-auto h-20'>
-					<h1 className='text-tertiary font-medium tracking-widest text-center text-3xl uppercase'>My projects</h1>
+					<h1 ref={titleRef} className='text-tertiary font-medium tracking-widest text-center text-3xl uppercase'>
+						My projects
+					</h1>
 				</div>
 				<div className='flex items-center justify-center border w-9/12 mx-auto bg-black bg-opacity-90 h-40 p-2'>
 					<h2 className='text-fourth font-medium tracking-wide text-sm'>

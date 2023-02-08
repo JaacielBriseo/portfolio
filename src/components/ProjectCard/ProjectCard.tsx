@@ -22,7 +22,7 @@ export const ProjectCard = ({ project, flipDirection }: { project: Project; flip
 			cardRef.current,
 			{ x: 0, y: 0, scale: 1, rotation: 0 },
 			{
-				duration: 1,
+				duration: 2,
 				x: flipDirection === 'right' ? 1000 : -1000,
 				y: 400,
 				scale: 0,

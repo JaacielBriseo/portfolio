@@ -19,7 +19,7 @@ export const AnimatedText: React.FC<Props> = ({ text }) => {
 			{words.map(word => (
 				<div key={word}>
 					{word.split('').map((char, i) => (
-						<span key={i} className='char inline-flex translate-y-96 duration-100 hover:text-7xl '>
+						<span key={i} className='char inline-flex translate-y-96 duration-100'>
 							{char}
 						</span>
 					))}

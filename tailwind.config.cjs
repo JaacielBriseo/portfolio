@@ -25,6 +25,7 @@ module.exports = {
 			fontFamily: {
 				OpenSans: ['Open Sans', 'sans-serif'],
 				Montserrat: ['Montserrat', 'sans-serif'],
+				Staat:['Staatliches', 'sans-serif']
 			},
 			animations: {
 				'fade-in': 'fade-in 1s ease-in-out',
