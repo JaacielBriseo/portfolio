@@ -33,7 +33,7 @@ export const ProjectCard = ({ project, flipDirection }: { project: Project; flip
 	return (
 		<div ref={cardRef} className='w-[327px] mx-auto rounded-lg shadow-2xl'>
 			<div className='relative group hover:outline outline-offset-8 outline-primary'>
-				<h1 className='leading-10 tracking-wider font-light text-2xl text-center text-white bg-secondary'>{title}</h1>
+				<h1 className='leading-10 tracking-wider font-light text-2xl text-center text-white bg-persimmon dark:bg-selectiveYellow'>{title}</h1>
 				<img src={img} alt='Project screenshot' className='w-full object-top object-cover h-[16rem] rounded-b' />
 				<div className='opacity-0 group-hover:opacity-100 absolute inset-0 duration-1000 bg-black bg-opacity-80 rounded flex justify-center items-center'>
 					<div className='w-9/12 h-1/2 mx-auto flex items-center flex-col justify-center space-y-10'>

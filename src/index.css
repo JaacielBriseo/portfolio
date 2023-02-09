@@ -11,5 +11,5 @@
 	}
 }
 .link {
-	@apply font-medium text-lg text-tertiary hover:underline;
+	@apply font-medium text-lg hover:underline;
 }

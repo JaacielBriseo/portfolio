@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useTheme } from '../../hooks';
-
-export const ThemeToggler = () => {
+interface Props {
+	className?: string;
+}
+export const ThemeToggler: React.FC<Props> = ({ className }) => {
 	const { setTheme } = useTheme();
 	const [toggle, setToggle] = useState(true);
 	const toggleClass = ' transform translate-x-5';
@@ -10,7 +12,7 @@ export const ThemeToggler = () => {
 		setToggle(!toggle);
 	};
 	return (
-		<div className='flex flex-col justify-center items-center mt-5'>
+		<div className={`flex flex-col justify-center items-center mt-5 ${className}`}>
 			<div
 				className='md:w-14 md:h-7 w-12 h-6 flex items-center bg-gray-400 rounded-full p-1 cursor-pointer'
 				onClick={() => {
