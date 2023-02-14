@@ -1,5 +1,7 @@
 export interface Project {
-  title:string;
-  desc:string;
-  img:string
+	title: string;
+	desc: string;
+	img: string;
+	demo: string;
+	repository: string;
 }

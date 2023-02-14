@@ -16,6 +16,9 @@ module.exports = {
 				orangeWeb: '#faa307ff',
 				selectiveYellow: '#ffba08ff',
 				Dark: '#000112',
+				BrightBlue: ' #08f',
+				BrightRed: '#f03',
+				SoftGray: '#ccc',
 				gray: {
 					100: '#F7FAFC',
 					200: '#EDF2F7',
@@ -47,6 +50,7 @@ module.exports = {
 				day: 'url(/assets/twilight.svg)',
 				night: 'url(/assets/moonlight.svg)',
 				clouds: 'url(https://greensock.com/_img/codepen/clouds.png)',
+				steps: 'url(/assets/layered-steps-haikei.svg)',
 			},
 		},
 	},

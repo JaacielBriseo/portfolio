@@ -2,12 +2,12 @@ import { ReactElement } from 'react';
 import classNames from 'classnames';
 import { useNavigation } from '../../hooks';
 
-interface Props {
+type Props = {
 	to: string;
 	children: ReactElement | ReactElement[];
 	className?: string;
 	activeClassName?: string;
-}
+} & React.HTMLAttributes<HTMLAnchorElement>;
 export const Link = ({ to, children, className, activeClassName }: Props) => {
 	const { navigate, currentPath } = useNavigation();
 	const classes = classNames('text-blue-500', className, currentPath === to && activeClassName);

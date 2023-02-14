@@ -15,13 +15,16 @@ export const AnimatedBGContainer: React.FC<Props> = ({ children, className }) =>
 	);
 	useLayoutEffect(() => {
 		const el = primaryDiv.current;
-		gsap.to(el, {
-			backgroundPosition: '100% 0',
-			ease: 'none',
-			repeat: -1,
-			yoyo: true,
-			duration: width && width >= 1024 ? 10 : 20,
+		const ctx = gsap.context(() => {
+			gsap.to(el, {
+				backgroundPosition: '100% 0',
+				ease: 'none',
+				repeat: -1,
+				yoyo: true,
+				duration: width && width >= 1024 ? 10 : 20,
+			});
 		});
+		return () => ctx.revert();
 	}, [width]);
 	return (
 		<div ref={primaryDiv} className={classes}>

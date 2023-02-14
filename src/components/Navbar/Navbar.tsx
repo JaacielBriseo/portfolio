@@ -15,13 +15,13 @@ export const Navbar = () => {
 				<div className='flex justify-between items-center p-3 h-24'>
 					<h1
 						onClick={() => navigate('/')}
-						className='text-orangeWeb dark:text-princetonOrange text-5xl leading-5 tracking-wider font-medium cursor-pointer'>
+						className='text-BrightRed dark:brightness-125 text-5xl -tracking-[0.27em] cursor-pointer'>
 						JB
 					</h1>
 					<HamburgerButton toggleMobileMenu={toggleMobileMenu} isMobileMenuOpen={isMobileMenuOpen} />
 				</div>
 			</nav>
-			<ModalContainer isMobileMenuOpen={isMobileMenuOpen} onClose={toggleMobileMenu} children={<MobileMenu />} />
+			<ModalContainer isMobileMenuOpen={isMobileMenuOpen} onClose={toggleMobileMenu} children={<MobileMenu onClose={toggleMobileMenu}/>} />
 		</>
 	);
 };
