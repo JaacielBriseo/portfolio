@@ -1,10 +1,21 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Sidebar } from '../../components/Sidebar/Sidebar';
+import gsap from 'gsap';
 export const ContactPage = () => {
 	const [isCopied, setIsCopied] = useState<boolean>(false);
+	const bgRef = useRef<HTMLDivElement>(null);
+	useEffect(() => {
+		const ctx = gsap.context(() => {
+			gsap.fromTo(bgRef.current, { }, {  });
+		}, bgRef);
+
+		return () => ctx.revert();
+	}, []);
 
 	return (
-		<div className='bg-gray-300 min-h-screen flex items-center -z-40 text-white lg:grid lg:grid-cols-3'>
+		<div
+			ref={bgRef}
+			className='bg-contactDay dark:bg-contactNight min-h-screen flex items-center -z-40 text-white lg:grid lg:grid-cols-3'>
 			<Sidebar />
 			<div className='bg-black bg-opacity-70 border-[3px] border-[#077] flex flex-col justify-around px-5 w-10/12 max-w-[430px] h-[calc(100vh-350px)] mx-auto rounded-lg shadow-2xl -mt-72 md:-mt-64 lg:-mt-40 lg:col-span-2'>
 				<h1 className=' text-center text-3xl font-medium'>Let's talk!</h1>

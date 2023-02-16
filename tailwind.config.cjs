@@ -41,16 +41,10 @@ module.exports = {
 				'fade-out': 'fade-out 1s ease-in-out',
 			},
 			backgroundImage: {
-				stars: 'url(/assets/background-stars.svg)',
-				sparks: 'url(/assets/sparks.svg)',
-				volcanoLight: 'url(/assets/volcano-light.jpg)',
-				volcanoDark: 'url(/assets/volcano-dark.jpg)',
-				wave: 'url(/assets/wave-haikei.svg)',
-				dessert: 'url(/assets/layered-peaks-haikei.svg)',
 				day: 'url(/assets/twilight.svg)',
 				night: 'url(/assets/moonlight.svg)',
-				clouds: 'url(https://greensock.com/_img/codepen/clouds.png)',
-				steps: 'url(/assets/layered-steps-haikei.svg)',
+				contactNight:'url(/assets/contactNight.svg)',
+				contactDay:'url(/assets/contactDay.svg)'
 			},
 		},
 	},

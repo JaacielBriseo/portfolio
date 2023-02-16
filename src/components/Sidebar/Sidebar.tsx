@@ -10,7 +10,7 @@ interface Props {
 export const Sidebar: React.FC<Props> = ({ className }) => {
 	const divRef = useRef<HTMLDivElement>(null);
 	const classes = classNames(
-		'hidden lg:flex w-full h-3/4 bg-transparent flex-col justify-between items-start p-5',
+		'hidden lg:flex w-full h-full bg-transparent flex-col justify-around items-start p-5',
 		className
 	);
 	useLayoutEffect(() => {
@@ -24,7 +24,7 @@ export const Sidebar: React.FC<Props> = ({ className }) => {
 		<div ref={divRef} className={classes}>
 			{routesLinks.map(link => (
 				<Link key={link.label} to={link.path}>
-					<h1 className='item uppercase text-4xl tracking-widest border-b-2 border-b-[#f03] text-[#08f]'>
+					<h1 className='item uppercase text-2xl xl:text-4xl tracking-widest border-b-2 border-b-[#f03] text-[#08f]'>
 						{link.label}
 					</h1>
 				</Link>
