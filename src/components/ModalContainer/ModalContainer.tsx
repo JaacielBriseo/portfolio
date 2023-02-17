@@ -15,7 +15,7 @@ export const ModalContainer: React.FC<Props> = ({ isMobileMenuOpen, children, on
 		document.body.classList.add('overflow-hidden');
 		return () => document.body.classList.remove('overflow-hidden');
 	}, [isMobileMenuOpen]);
-	useLayoutEffect(() => {
+	useEffect(() => {
 		const ctx = gsap.context(() => {
 			tl.current && tl.current.progress(0).kill();
 			tl.current = gsap

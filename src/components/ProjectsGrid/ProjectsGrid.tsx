@@ -3,12 +3,12 @@ import { ProjectCard } from '../ProjectCard/ProjectCard';
 import { TypewritterCharacters } from '../TypewritterCharacters/TypewritterCharacters';
 export const ProjectsGrid = () => {
 	return (
-		<section className='space-y-10 relative overflow-x-hidden p-10 lg:col-span-5'>
+		<section className='space-y-10 relative overflow-x-hidden lg:col-span-5'>
 			<div className='space-y-4'>
 				<div className='flex items-end justify-center w-9/12 mx-auto'>
 					<TypewritterCharacters
 						text='My projects'
-						className='font-medium text-3xl tracking-wider leading-10 uppercase text-black dark:text-white'
+						className='font-medium mt-10 text-3xl tracking-wider leading-10 uppercase text-black dark:text-white'
 					/>
 				</div>
 				<div className='flex items-center justify-center border border-[#077] w-9/12 mx-auto bg-black bg-opacity-70 dark:bg-opacity-5 p-2 md:w-8/12'>
