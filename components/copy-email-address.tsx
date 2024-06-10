@@ -1,11 +1,16 @@
 'use client';
 
-import Lottie from 'react-lottie';
-import MagicButton from './magic-button';
-import { CopyIcon } from 'lucide-react';
 import { useState } from 'react';
 
+import Lottie from 'react-lottie';
+
+import MagicButton from './magic-button';
+
+import { CopyIcon } from 'lucide-react';
+
 import animationData from '@/config/confetti.json';
+
+const emailAddress = 'jaacielbris23@gmail.com';
 
 export const CopyEmailAddress = () => {
 	const [copied, setCopied] = useState(false);
@@ -19,10 +24,32 @@ export const CopyEmailAddress = () => {
 		},
 	};
 
-	const handleCopy = () => {
-		const text = 'jaacielbris23@gmail.com';
-		navigator.clipboard.writeText(text);
-		setCopied(true);
+	const handleCopy = async () => {
+		const setCopiedTemporarily = () => {
+			setCopied(true);
+			setTimeout(() => {
+				setCopied(false);
+			}, 3000);
+		};
+
+		if (!!navigator.clipboard) {
+			try {
+				await navigator.clipboard.writeText(emailAddress);
+				setCopiedTemporarily();
+			} catch (error) {
+				console.error('Failed to copy text: ', error);
+			}
+			return;
+		}
+
+		// Fallback to execCommand for older browsers
+		const textArea = document.createElement('textarea');
+		textArea.value = emailAddress;
+		document.body.appendChild(textArea);
+		textArea.select();
+		document.execCommand('copy');
+		document.body.removeChild(textArea);
+		setCopiedTemporarily();
 	};
 
 	return (
