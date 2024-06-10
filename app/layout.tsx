@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 
 import { Inter } from 'next/font/google';
 
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 import { ThemeProvider } from '@/components/provider';
 
 import './globals.css';
@@ -37,6 +39,7 @@ export default function RootLayout({
 					forcedTheme='dark'
 					disableTransitionOnChange>
 					{children}
+					<SpeedInsights />
 				</ThemeProvider>
 			</body>
 		</html>
