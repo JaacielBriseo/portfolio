@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 
 import { CopyIcon } from 'lucide-react';
 
@@ -25,12 +25,38 @@ export const BentoGrid = ({
 		<div
 			className={cn(
 				'grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-8 mx-auto',
-				className
+				className,
 			)}>
 			{children}
 		</div>
 	);
 };
+const leftLists = [
+	'ReactJS',
+	'NextJS',
+	'Typescript',
+	'NodeJS',
+	'MongoDB',
+	'PostgreSQL',
+	'GraphQL',
+	'MySQL',
+	'Git',
+	'Angular',
+];
+const rightLists = [
+	'PHP',
+	'Laravel',
+	'VueJS',
+	'Docker',
+	'NestJS',
+	'Firebase',
+	'TailwindCSS',
+	'GSAP',
+	'Framer Motion',
+	'ThreeJS',
+	'Cypress',
+	'Jest',
+];
 
 export const BentoGridItem = ({
 	className,
@@ -51,48 +77,44 @@ export const BentoGridItem = ({
 	titleClassName?: string;
 	spareImg?: string;
 }) => {
-	const leftLists = [
-		'ReactJS',
-		'NextJS',
-		'Typescript',
-		'NodeJS',
-		'MongoDB',
-		'PostgreSQL',
-		'GraphQL',
-		'MySQL',
-		'Git',
-		'Angular',
-	];
-	const rightLists = [
-		'PHP',
-		'Laravel',
-		'VueJS',
-		'Docker',
-		'NestJS',
-		'Firebase',
-		'TailwindCSS',
-		'GSAP',
-		'Framer Motion',
-		'ThreeJS',
-		'Cypress',
-		'Jest',
-	];
-
 	const [copied, setCopied] = useState(false);
-
-	const defaultOptions = {
-		loop: copied,
-		autoplay: copied,
-		animationData: animationData,
-		rendererSettings: {
-			preserveAspectRatio: 'xMidYMid slice',
-		},
-	};
 
 	const handleCopy = () => {
 		const text = 'jaacielbris23@gmail.com';
-		navigator.clipboard.writeText(text);
-		setCopied(true);
+		if (navigator?.clipboard && navigator.clipboard.writeText) {
+			navigator.clipboard
+				.writeText(text)
+				.then(() => {
+					setCopied(true);
+				})
+				.catch(() => {
+					// fallback if clipboard API fails
+					const textarea = document.createElement('textarea');
+					textarea.value = text;
+					document.body.appendChild(textarea);
+					textarea.select();
+					try {
+						document.execCommand('copy');
+						setCopied(true);
+					} catch (err) {
+						// handle error if needed
+					}
+					document.body.removeChild(textarea);
+				});
+		} else {
+			// fallback for older browsers
+			const textarea = document.createElement('textarea');
+			textarea.value = text;
+			document.body.appendChild(textarea);
+			textarea.select();
+			try {
+				document.execCommand('copy');
+				setCopied(true);
+			} catch (err) {
+				// handle error if needed
+			}
+			document.body.removeChild(textarea);
+		}
 	};
 
 	return (
@@ -104,7 +126,7 @@ export const BentoGridItem = ({
 					'lg:col-span-2 md:col-span-3 md:row-span-2': id === 2 || id === 3,
 					'lg:col-span-2 md:col-span-3 md:row-span-1': id === 4 || id === 6,
 					'md:col-span-3 md:row-span-2': id === 5,
-				}
+				},
 			)}
 			style={{
 				background: 'rgb(4,7,29)',
@@ -152,7 +174,7 @@ export const BentoGridItem = ({
 							'justify-center': id === 3,
 							'justify-center md:justify-start lg:justify-center': id === 5,
 							'justify-center md:max-w-full max-w-60 text-center': id === 6,
-						}
+						},
 					)}>
 					<div className='font-sans font-extralight md:max-w-32 md:text-xs lg:text-base text-sm text-[#C1C2D3] z-10'>
 						{description}
@@ -185,7 +207,7 @@ export const BentoGridItem = ({
                     lg:opacity-100 rounded-lg text-center bg-[#10132E]'>
 											{item}
 										</span>
-									)
+									),
 								)}
 							</div>
 						</div>
@@ -197,9 +219,10 @@ export const BentoGridItem = ({
 									copied ? 'block' : 'block'
 								}`}>
 								<Lottie
-									options={defaultOptions}
-									height={200}
-									width={400}
+									animationData={animationData}
+									loop={copied}
+									autoplay={copied}
+									style={{ height: 200, width: 400 }}
 								/>
 							</div>
 

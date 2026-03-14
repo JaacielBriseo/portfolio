@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 
 import MagicButton from './magic-button';
 
@@ -14,15 +14,6 @@ const emailAddress = 'jaacielbris23@gmail.com';
 
 export const CopyEmailAddress = () => {
 	const [copied, setCopied] = useState(false);
-
-	const defaultOptions = {
-		loop: copied,
-		autoplay: copied,
-		animationData: animationData,
-		rendererSettings: {
-			preserveAspectRatio: 'xMidYMid slice',
-		},
-	};
 
 	const handleCopy = async () => {
 		const setCopiedTemporarily = () => {
@@ -57,9 +48,10 @@ export const CopyEmailAddress = () => {
 			<div
 				className={`absolute -bottom-5 right-0 ${copied ? 'block' : 'block'}`}>
 				<Lottie
-					options={defaultOptions}
-					height={200}
-					width={400}
+					animationData={animationData}
+					loop={copied}
+					autoplay={copied}
+					style={{ height: 200, width: 400 }}
 				/>
 			</div>
 

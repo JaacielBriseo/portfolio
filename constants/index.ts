@@ -16,19 +16,19 @@ export const projects = [
 	},
 	{
 		id: 2,
-		title: 'Grupo Rivero Web',
-		des: 'A corporate website for Grupo Rivero, a car dealership in Monterrey, Nuevo León.',
-		img: '/p2.svg',
+		title: 'Sinecta IA',
+		des: 'Risk and Insuretech company. Comprehensive agro-financial risk management software powered by AI, designed to optimize agricultural insurance processes and enhance risk assessment for farmers and insurers.',
+		img: '/sinecta.png',
 		iconLists: ['/re.svg', '/next.svg', '/tail.svg', '/ts.svg'],
-		link: 'https://next-web.rivero.services/',
+		link: 'https://sinecta.com/',
 	},
 	{
 		id: 3,
-		title: 'Kanban Task Management',
-		des: 'A task management app that allows you to create, edit, and delete tasks, as well as drag and drop them to different columns.',
-		img: '/p3.svg',
+		title: 'Renovacasas',
+		des: 'A flipping houses company website, where users can view and/or upload properties for sale, with a delivery service for the properties.',
+		img: '/renovacasas.png',
 		iconLists: ['/psql.svg','/dock.svg', '/tail.svg', '/ts.svg', '/re.svg', '/next.svg'],
-		link: 'https://kanban-tasks-management-nextjs.vercel.app/',
+		link: 'https://renovacasas.com.mx/',
 	},
 ];
 

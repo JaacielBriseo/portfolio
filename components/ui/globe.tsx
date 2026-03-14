@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import ThreeGlobe from 'three-globe';
 import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from 'three';
@@ -76,6 +76,12 @@ export function Globe({ globeConfig, data }: WorldProps) {
 	>(null);
 
 	const globeRef = useRef<ThreeGlobe | null>(null);
+	const [globeReady, setGlobeReady] = useState(false);
+
+	const setGlobeRef = useCallback((node: ThreeGlobe | null) => {
+		globeRef.current = node;
+		if (node) setGlobeReady(true);
+	}, []);
 
 	const defaultProps = {
 		pointSize: 1,
@@ -96,11 +102,11 @@ export function Globe({ globeConfig, data }: WorldProps) {
 	};
 
 	useEffect(() => {
-		if (globeRef.current) {
+		if (globeReady && globeRef.current) {
 			_buildData();
 			_buildMaterial();
 		}
-	}, [globeRef.current]);
+	}, [globeReady]);
 
 	const _buildMaterial = () => {
 		if (!globeRef.current) return;
@@ -192,8 +198,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
 		globeRef.current
 			.pointsData(data)
 			.pointColor(e => (e as { color: string }).color)
-			.pointsMerge(true)
-			.pointAltitude(0.0)
+			.pointAltitude(0.01)
 			.pointRadius(2);
 
 		globeRef.current
@@ -229,7 +234,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
 	return (
 		<>
-			<threeGlobe ref={globeRef} />
+			<threeGlobe ref={setGlobeRef} />
 		</>
 	);
 }
